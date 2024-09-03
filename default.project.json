@@ -1,0 +1,98 @@
+{
+	"name": "roblox-ts-game",
+	"globIgnorePaths": [
+		"**/package.json",
+		"**/tsconfig.json"
+	],
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"$path": "out/Server"
+		},
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"rbxts_include": {
+				"$path": "include",
+				"node_modules": {
+					"$className": "Folder",
+					"@rbxts": {
+						"$path": "node_modules/@rbxts"
+					}
+				}
+			},
+			"$path": "out/shared",
+			"GUI": {
+				"$path": "out/GUI"
+			},
+			"AnimIDs": {
+				"$className": "Folder",
+				"AirDive": { "$className": "IntValue", "$properties": { "Value": 134410938362857 } },
+				"Emote": { "$className": "IntValue", "$properties": { "Value": 100446789645949 } },
+				"Fall": { "$className": "IntValue", "$properties": { "Value": 134410938362857 } },
+				"Idle": { "$className": "IntValue", "$properties": { "Value": 507766666 } },
+				"Jump": { "$className": "IntValue", "$properties": { "Value": 77659192944927 } },
+				"NoWalk": { "$className": "IntValue", "$properties": { "Value": 89111418672430 } },
+				"OldWalk": { "$className": "IntValue", "$properties": { "Value": 99708927544521 } },
+				"Run": { "$className": "IntValue", "$properties": { "Value": 110782376783419 } },
+				"Slide": { "$className": "IntValue", "$properties": { "Value": 129040327001178 } },
+				"Swim": { "$className": "IntValue", "$properties": { "Value": 125215529436985 } },
+				"SwimAngle-45": { "$className": "IntValue", "$properties": { "Value": 72527462965278 } },
+				"SwimAngle-90": { "$className": "IntValue", "$properties": { "Value": 93919356579186 } },
+				"SwimAngle0": { "$className": "IntValue", "$properties": { "Value": 92894054721594 } },
+				"SwimAngle45": { "$className": "IntValue", "$properties": { "Value": 94859899471813 } },
+				"SwimAngle90": { "$className": "IntValue", "$properties": { "Value": 81279249114842 } },
+				"SwimIdle": { "$className": "IntValue", "$properties": { "Value": 140288103791895 } },
+				"Swingy": { "$className": "IntValue", "$properties": { "Value": 110392764621378 } },
+				"Walk": { "$className": "IntValue", "$properties": { "Value": 106670165160150 } },
+				"WallHang": { "$className": "IntValue", "$properties": { "Value": 87556045654848 } }
+			}
+		},
+		"ReplicatedFirst": {
+			"$className": "ReplicatedFirst"
+		},
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
+				"$path": "out/client/Player",
+				"misc": {
+					"$className": "Folder",
+					"Loading": {
+						"$className": "Folder",
+						"$path": "out/misc/loading",
+						"UpdWater": {
+							"$className": "BindableEvent"
+						}
+					}
+				},
+				"SFX_Folder2": {
+					"$className": "Folder",
+					"!Temp": {"$className": "Folder"}
+				}
+			},
+			"StarterCharacterScripts": {
+				"$className": "StarterCharacterScripts",
+				"$path": "out/client/Character"
+			}
+		},
+		"Workspace": {
+			"$className": "Workspace",
+			"$properties": {
+				"FilteringEnabled": true
+			}
+		},
+		"HttpService": {
+			"$className": "HttpService",
+			"$properties": {
+				"HttpEnabled": true
+			}
+		},
+		"SoundService": {
+			"$className": "SoundService",
+			"$properties": {
+				"RespectFilteringEnabled": true
+			}
+		}
+	}
+}
