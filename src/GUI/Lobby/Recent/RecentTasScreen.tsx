@@ -82,6 +82,28 @@ export const recentTabGui = (
 				BackgroundColor3={Color3.fromHex("#0B0D12")}
 			>
 				<uicorner CornerRadius={new UDim(0, 10)} />
+				<textlabel
+					Key={"Title"}
+					Size={new UDim2(0.184, 0, 0.061, 0)}
+					Position={new UDim2(0.02, 0, 0.022, 0)}
+					Text={"Recent TASes"}
+					Font={"GothamBold"}
+					TextColor3={Color3.fromHex("#EBEBEB")}
+					BackgroundTransparency={1}
+					TextSize={22}
+					TextXAlignment={"Left"}
+				/>
+				<textlabel
+					Key={"Continue"}
+					Size={new UDim2(0.088, 0, 0.041, 0)}
+					Position={new UDim2(0.02, 0, 0.838, 0)}
+					Text={"Continue"}
+					Font={"GothamBold"}
+					TextColor3={Color3.fromHex("#EBEBEB")}
+					BackgroundTransparency={1}
+					TextSize={16}
+					TextXAlignment={"Left"}
+				/>
 			</frame>
 		</frame>
 	</screengui>
