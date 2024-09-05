@@ -8,7 +8,7 @@ export function createListPanel(index: number) {
 		panelSize = 32;
 	}
 
-	const panel = <frame Key={"Panel"}></frame>;
+	const panel = <frame></frame>;
 
 	return panel;
 }
