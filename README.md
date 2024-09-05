@@ -1,0 +1,2 @@
+# The FE2TAS Project
+## FE2 Is a game created in 2017 by crazyblox.  Over the years, people had made TAS (Tool Assisted Speedrun) with Exploits and hacks.  Over the last few years however (2023+), Crazyblox had made some changes, alongside roblox introducing their anti-cheat hyperion, essentially eliminating the TAS scene.  This is a project created by ChasM ([.chasm._ on Discord](https://discordapp.com/users/862122952970600478)) to recreate and revive this dying scene.
