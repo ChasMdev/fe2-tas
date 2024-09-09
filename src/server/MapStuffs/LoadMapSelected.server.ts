@@ -4,13 +4,12 @@ const loadBindable = new Instance("RemoteEvent", ReplicatedStorage);
 loadBindable.Name = "LoadMapBindable";
 
 loadBindable.OnServerEvent.Connect((plrName, mapName) => {
-	print("debug1");
-	if (ServerStorage.FindFirstChild("Maps")?.FindFirstChild(tostring(mapName))) {
+	const maps = ServerStorage.FindFirstChild("Maps");
+	if (!maps) return;
+	const map = maps.FindFirstChild(tostring(mapName));
+	if (map && map.IsA("Model")) {
 		print(`Found map ${mapName}`);
-		const map = ServerStorage.FindFirstChild("Maps")?.FindFirstChild(tostring(mapName))?.Clone();
-		if (map?.IsA("Model")) {
-			map.Parent = Workspace;
-			map.PrimaryPart = map.FindFirstChild("Spawn", true) as Part;
-		}
+		map.Parent = Workspace;
+		map.PrimaryPart = map.FindFirstChild("Spawn", true) as Part;
 	}
 });
