@@ -93,29 +93,29 @@ local function partColorToggle(bool)
 
 				local faceCFrames = {
 					cf * CFrame.new(0, size.Y, 0),
-        			cf * CFrame.new(0, -size.Y, 0),
-        			cf * CFrame.new(size.X, 0, 0),
-        			cf * CFrame.new(-size.X, 0, 0),
-        			cf * CFrame.new(0, 0, size.Z),
-        			cf * CFrame.new(0, 0, -size.Z),
+	        			cf * CFrame.new(0, -size.Y, 0),
+	        			cf * CFrame.new(size.X, 0, 0),
+	        			cf * CFrame.new(-size.X, 0, 0),
+	        			cf * CFrame.new(0, 0, size.Z),
+	        			cf * CFrame.new(0, 0, -size.Z),
 				}
 
 				for _,faceCFrame in ipairs(faceCFrames) do
 					local upVector = faceCFrame.UpVector
-        			local rightVector = faceCFrame.RightVector
-        			local lookVector = faceCFrame.LookVector
-							
-        			local upY = math.abs(upVector.Y)
-        			local rightY = math.abs(rightVector.Y)
-        			local lookY = math.abs(lookVector.Y)
-							
-        			local isProperlyAligned = (upY > 0.999 and rightY < 1e-4 and lookY < 1e-4) or (rightY > 0.999 and upY < 1e-4 and lookY < 1e-4) or (lookY > 0.999 and upY < 1e-4 and rightY < 1e-4)
-							
-        			if not isProperlyAligned then
-        			    return true
-        			end
+	        			local rightVector = faceCFrame.RightVector
+	        			local lookVector = faceCFrame.LookVector
+								
+	        			local upY = math.abs(upVector.Y)
+	        			local rightY = math.abs(rightVector.Y)
+	        			local lookY = math.abs(lookVector.Y)
+								
+	        			local isProperlyAligned = (upY > 0.999 and rightY < 1e-4 and lookY < 1e-4) or (rightY > 0.999 and upY < 1e-4 and lookY < 1e-4) or (lookY > 0.999 and upY < 1e-4 and rightY < 1e-4)
+								
+	        			if not isProperlyAligned then
+	        			    return true
+	        			end
 				end
-    			return false
+    				return false
 			end
 			if isPartSloped(v) == true and v.Anchored then
 				if rand == 1 then
