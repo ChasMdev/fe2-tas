@@ -1,10 +1,12 @@
 # How to use Manager.client.ts
 
-Mount the initial GUI with ```ts
-Roact.mount(recentTabGui, Players.LocalPlayer.WaitForChild("PlayerGui"));```
+Mount the initial GUI with 
+```ts
+Roact.mount(recentTabGui, Players.LocalPlayer.WaitForChild("PlayerGui"));
+```
 
 To add the Recent TAS Panels, use 
-```
+```ts
 Roact.mount(
 	createListPanel(index, mapName, CreationDate, ModifiedDate, Percentage),
 	Players.LocalPlayer.WaitForChild("PlayerGui")
