@@ -72,7 +72,6 @@ function runSlide(actname: any, inputstate: Enum.UserInputState, inputobj: any) 
 	humRootPart = Players.LocalPlayer.Character?.WaitForChild("HumanoidRootPart") as Part;
 	hum = Players.LocalPlayer.Character?.WaitForChild("Humanoid") as Humanoid;
 	if (playerVars.charState === 0 && humRootPart && hum) {
-		// && humRootPart && hum
 		if (inputstate === Enum.UserInputState.Begin) {
 			if (
 				hum.GetState() !== Enum.HumanoidStateType.Running ||
