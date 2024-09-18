@@ -1,20 +1,19 @@
 # How to use Manager.client.ts
 
-Mount the initial GUI with 
+Mount the initial GUI with
 ```ts
 Roact.mount(recentTabGui, Players.LocalPlayer.WaitForChild("PlayerGui"));
 ```
 
-To add the Recent TAS Panels, use 
+To add the Recent TAS Panels, use
 ```ts
 Roact.mount(
-	createListPanel(index, mapName, CreationDate, ModifiedDate, Percentage),
+	createListPanel(index, fileName, modifiedDate, fileID),
 	Players.LocalPlayer.WaitForChild("PlayerGui")
 		.WaitForChild("RecentTabUi")
 		.WaitForChild("Wrapper")
-		.WaitForChild("MainFrame")
-		.WaitForChild("Panels")
-		.WaitForChild("List"),
+		.WaitForChild("RecentView")
+		.WaitForChild("List")
 );
-``` 
-in a loop, where `index` is the position (vertically) in the list, `mapName` is the name of the map, or the TAS name, `CreationDate` is the date of TAS creation, `ModifiedDate` is the date of the last modification to the file and `Percentage` is the percentage of how many buttons are pressed out of the total.
+```
+in a loop, where `index` is the position (vertically) in the list, `fileName` is the name of the TAS File, `ModifiedDate` is the date of the last modification to the file and `fileID` is the TAS ID (T-••••••••) of the file used for sharing.

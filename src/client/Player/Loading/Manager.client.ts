@@ -58,3 +58,29 @@ function manipulateFrame(
 		});
 	},
 );*/
+
+//TESTING AREA REAL!!!!
+Roact.mount(
+	createListPanel(1, "Long name test very very long name lo ···", "Dec. 29 2023", "A7X9J2B5"),
+	Players.LocalPlayer.WaitForChild("PlayerGui")
+		.WaitForChild("RecentTabUi")
+		.WaitForChild("Wrapper")
+		.WaitForChild("RecentView")
+		.WaitForChild("List"),
+);
+Roact.mount(
+	createListPanel(2, "Long name test very very long name lo ···", "Dec. 29 2023", "WWWWWWWW"),
+	Players.LocalPlayer.WaitForChild("PlayerGui")
+		.WaitForChild("RecentTabUi")
+		.WaitForChild("Wrapper")
+		.WaitForChild("RecentView")
+		.WaitForChild("List"),
+);
+Roact.mount(
+	createListPanel(3, "Long name test very very long name lo ···", "Dec. 29 2023", "MMMMMMMM"),
+	Players.LocalPlayer.WaitForChild("PlayerGui")
+		.WaitForChild("RecentTabUi")
+		.WaitForChild("Wrapper")
+		.WaitForChild("RecentView")
+		.WaitForChild("List"),
+);

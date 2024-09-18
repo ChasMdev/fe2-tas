@@ -5,7 +5,7 @@ export const recentTabGui = (
 		<frame
 			Key={"Wrapper"}
 			BackgroundTransparency={1}
-			Size={new UDim2(0, 804, 0, 666)}
+			Size={new UDim2(0.419, 0, 0.617, 0)}
 			AnchorPoint={new Vector2(0.5, 0.5)}
 			Position={new UDim2(0.5, 0, 0.5, 0)}
 		>
