@@ -1,7 +1,7 @@
 import Roact from "@rbxts/roact";
 
 export const recentTabGui = (
-	<screengui Key={"RecentTabUi"} IgnoreGuiInset={true}>
+	<screengui Key={"RecentTabUi"} IgnoreGuiInset={true} ZIndexBehavior={"Sibling"}>
 		<frame
 			Key={"Wrapper"}
 			BackgroundTransparency={1}

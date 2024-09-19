@@ -14,12 +14,14 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 	interface uiProps {
 		IDHider: boolean;
 		optnsWrapper: UDim2;
+		Shadow: UDim2;
 		listSize: UDim2;
 		listPosition: UDim2;
 	}
 
 	class panel extends Roact.Component<object, uiProps> {
 		private optnsWrapperRef: Roact.Ref<Frame>;
+		private ShadowRef: Roact.Ref<Frame>;
 		private renderSteppedConnection: RBXScriptConnection | undefined;
 		private flipperController: flipperController;
 
@@ -28,13 +30,17 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 			this.state = {
 				IDHider: true,
 				optnsWrapper: new UDim2(0.408, 0, 0.769, 0),
+				Shadow: new UDim2(-1, 0, 0, 0),
 				listSize: new UDim2(0, 300, 1, 0),
 				listPosition: new UDim2(0, 304, 0.5, 0),
 			};
 			this.optnsWrapperRef = Roact.createRef();
+			this.ShadowRef = Roact.createRef();
 			this.flipperController = new flipperController(
-				0, // Initial value for the motor
+				0,
+				-1,
 				(newUDim2) => this.setState({ optnsWrapper: newUDim2 }),
+				(newUDim2) => this.setState({ Shadow: newUDim2 }),
 			);
 		}
 		handleExtrasClick = () => {
@@ -77,13 +83,23 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 
 		render() {
 			return (
-				<frame
+				<canvasgroup
 					Key={"Panel"}
 					Size={new UDim2(1, 0, 0.123, 0)}
 					Position={new UDim2(0, 0, 0.123 * (index - 1), 0)}
 					BackgroundColor3={Color3.fromHex(panelColor)}
 					LayoutOrder={index}
 				>
+					<frame
+						Key={"Shadow"}
+						Ref={this.ShadowRef}
+						Position={this.state.Shadow}
+						Size={new UDim2(1, 0, 1, 0)}
+						ZIndex={3}
+						BackgroundTransparency={0.5}
+						BackgroundColor3={Color3.fromHex("#000000")}
+						BorderSizePixel={0}
+					/>
 					<uicorner CornerRadius={new UDim(0, 6)} />
 					<textlabel
 						Key={"Index"}
@@ -174,7 +190,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 						Position={new UDim2(0.064, 0, 0.5, 0)}
 						Size={this.state.optnsWrapper}
 						ClipsDescendants={true}
-						ZIndex={2}
+						ZIndex={4}
 					>
 						<uicorner CornerRadius={new UDim(0, 4)} />
 						<frame
@@ -183,8 +199,108 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 							AnchorPoint={new Vector2(1, 0.5)}
 							Size={this.state.listSize}
 							Position={this.state.listPosition}
-							ZIndex={2}
-						></frame>
+							ZIndex={4}
+						>
+							<uilistlayout
+								Padding={new UDim(0.015, 0)}
+								FillDirection={"Horizontal"}
+								HorizontalAlignment={"Right"}
+								VerticalAlignment={"Center"}
+							/>
+							<textbutton
+								Key={"Duplicate"}
+								AnchorPoint={new Vector2(0.5, 0.5)}
+								BackgroundColor3={Color3.fromRGB(36, 220, 44)}
+								BackgroundTransparency={0.92}
+								LayoutOrder={2}
+								Size={new UDim2(0.37, 0, 0.811, 0)}
+								ZIndex={4}
+								Text={""}
+							>
+								<uicorner CornerRadius={new UDim(0, 4)} />
+								<textlabel
+									AnchorPoint={new Vector2(1, 0.5)}
+									BackgroundTransparency={1}
+									Size={new UDim2(0.712, 0, 0.533, 0)}
+									Position={new UDim2(0.982, 0, 0.5, 0)}
+									FontFace={new Font("rbxassetid://12187365364", Enum.FontWeight.SemiBold)}
+									Text={"Duplicate"}
+									TextScaled={true}
+									TextXAlignment={"Left"}
+									TextColor3={Color3.fromRGB(36, 220, 44)}
+									ZIndex={4}
+								/>
+								<imagelabel
+									BackgroundTransparency={1}
+									Size={new UDim2(0.272, 0, 1, 0)}
+									ZIndex={4}
+									Image={"rbxassetid://113898481680738"}
+									ImageColor3={Color3.fromRGB(36, 220, 44)}
+								/>
+							</textbutton>
+							<textbutton
+								Key={"Rename"}
+								AnchorPoint={new Vector2(0.5, 0.5)}
+								BackgroundColor3={Color3.fromRGB(69, 153, 245)}
+								BackgroundTransparency={0.92}
+								LayoutOrder={1}
+								Size={new UDim2(0.323, 0, 0.811, 0)}
+								ZIndex={4}
+								Text={""}
+							>
+								<uicorner CornerRadius={new UDim(0, 4)} />
+								<textlabel
+									AnchorPoint={new Vector2(1, 0.5)}
+									BackgroundTransparency={1}
+									Size={new UDim2(0.67, 0, 0.533, 0)}
+									Position={new UDim2(0.99, 0, 0.5, 0)}
+									FontFace={new Font("rbxassetid://12187365364", Enum.FontWeight.SemiBold)}
+									Text={"Rename"}
+									TextScaled={true}
+									TextXAlignment={"Left"}
+									TextColor3={Color3.fromRGB(69, 153, 245)}
+									ZIndex={4}
+								/>
+								<imagelabel
+									BackgroundTransparency={1}
+									Size={new UDim2(0.312, 0, 1, 0)}
+									ZIndex={4}
+									Image={"rbxassetid://103646554481566"}
+									ImageColor3={Color3.fromRGB(69, 153, 245)}
+								/>
+							</textbutton>
+							<textbutton
+								Key={"Delete"}
+								AnchorPoint={new Vector2(0.5, 0.5)}
+								BackgroundColor3={Color3.fromRGB(206, 10, 46)}
+								BackgroundTransparency={0.92}
+								LayoutOrder={0}
+								Size={new UDim2(0.277, 0, 0.811, 0)}
+								ZIndex={4}
+								Text={""}
+							>
+								<uicorner CornerRadius={new UDim(0, 4)} />
+								<textlabel
+									AnchorPoint={new Vector2(1, 0.5)}
+									BackgroundTransparency={1}
+									Size={new UDim2(0.614, 0, 0.533, 0)}
+									Position={new UDim2(0.976, 0, 0.5, 0)}
+									FontFace={new Font("rbxassetid://12187365364", Enum.FontWeight.SemiBold)}
+									Text={"Delete"}
+									TextScaled={true}
+									TextXAlignment={"Left"}
+									TextColor3={Color3.fromRGB(206, 10, 46)}
+									ZIndex={4}
+								/>
+								<imagelabel
+									BackgroundTransparency={1}
+									Size={new UDim2(0.361, 0, 1, 0)}
+									ZIndex={4}
+									Image={"rbxassetid://121047363025945"}
+									ImageColor3={Color3.fromRGB(206, 10, 46)}
+								/>
+							</textbutton>
+						</frame>
 					</frame>
 					<imagebutton
 						Key={"Extras"}
@@ -194,11 +310,12 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 						Position={new UDim2(0.012, 0, 0.5, 0)}
 						Image={"rbxassetid://77800512493780"}
 						ImageColor3={Color3.fromHex("#C1C6CA")}
+						ZIndex={4}
 						Event={{
 							MouseButton1Click: this.handleExtrasClick,
 						}}
 					/>
-				</frame>
+				</canvasgroup>
 			);
 		}
 	}
