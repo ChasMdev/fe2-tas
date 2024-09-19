@@ -30,7 +30,7 @@ export class flipperController {
 				dampingRatio: 1,
 			}),
 		);
-		task.wait(0.05);
+		task.wait(0.08);
 		this.motor.setGoal(
 			new Spring(0.408, {
 				frequency: 3.7,
