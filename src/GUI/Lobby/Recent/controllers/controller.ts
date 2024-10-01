@@ -37,6 +37,7 @@ export class flipperController {
 				dampingRatio: 0.93,
 			}),
 		);
+		return;
 	}
 
 	public closeOptions() {
@@ -46,12 +47,13 @@ export class flipperController {
 				dampingRatio: 1,
 			}),
 		);
-		task.wait(0.05);
+		task.wait(0.08);
 		this.motor2.setGoal(
 			new Spring(-1, {
 				frequency: 3.7,
 				dampingRatio: 1,
 			}),
 		);
+		return;
 	}
 }

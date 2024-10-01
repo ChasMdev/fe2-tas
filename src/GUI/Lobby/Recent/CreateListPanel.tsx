@@ -4,11 +4,7 @@ import { calculatePosition, calculateSize, deleteFile, duplicatieFile, renameFil
 import { flipperController } from "./controllers/controller";
 
 export function createListPanel(index: number, fileName: string, modifiedDate: string, fileID: string) {
-	let panelColor = "#1E1F24";
-
-	if (index % 2 === 0) {
-		panelColor = "#101418";
-	}
+	const panelColor = index % 2 === 0 ? "#101418" : "#1E1F24";
 	let optionsOpen: boolean = false;
 
 	interface uiProps {
@@ -45,11 +41,8 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 		}
 		handleExtrasClick = () => {
 			optionsOpen = !optionsOpen;
-			if (optionsOpen) {
-				this.flipperController.openOptions();
-			} else {
-				this.flipperController.closeOptions();
-			}
+			// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+			optionsOpen ? this.flipperController.openOptions() : this.flipperController.closeOptions();
 		};
 
 		didMount() {
@@ -186,7 +179,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 						Ref={this.optnsWrapperRef}
 						Key={"OptionsWrapper"}
 						AnchorPoint={new Vector2(0, 0.5)}
-						BackgroundColor3={Color3.fromHex("#25272C")}
+						BackgroundColor3={Color3.fromHex(panelColor)}
 						Position={new UDim2(0.064, 0, 0.5, 0)}
 						Size={this.state.optnsWrapper}
 						ClipsDescendants={true}
@@ -210,8 +203,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 							<textbutton
 								Key={"Duplicate"}
 								AnchorPoint={new Vector2(0.5, 0.5)}
-								BackgroundColor3={Color3.fromRGB(36, 220, 44)}
-								BackgroundTransparency={0.92}
+								BackgroundColor3={Color3.fromHex("#25272C")}
 								LayoutOrder={2}
 								Size={new UDim2(0.37, 0, 0.811, 0)}
 								ZIndex={4}
@@ -227,7 +219,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 									Text={"Duplicate"}
 									TextScaled={true}
 									TextXAlignment={"Left"}
-									TextColor3={Color3.fromRGB(36, 220, 44)}
+									TextColor3={Color3.fromHex("#C1C6CA")}
 									ZIndex={4}
 								/>
 								<imagelabel
@@ -235,14 +227,13 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 									Size={new UDim2(0.272, 0, 1, 0)}
 									ZIndex={4}
 									Image={"rbxassetid://113898481680738"}
-									ImageColor3={Color3.fromRGB(36, 220, 44)}
+									ImageColor3={Color3.fromHex("#C1C6CA")}
 								/>
 							</textbutton>
 							<textbutton
 								Key={"Rename"}
 								AnchorPoint={new Vector2(0.5, 0.5)}
-								BackgroundColor3={Color3.fromRGB(69, 153, 245)}
-								BackgroundTransparency={0.92}
+								BackgroundColor3={Color3.fromHex("#25272C")}
 								LayoutOrder={1}
 								Size={new UDim2(0.323, 0, 0.811, 0)}
 								ZIndex={4}
@@ -258,7 +249,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 									Text={"Rename"}
 									TextScaled={true}
 									TextXAlignment={"Left"}
-									TextColor3={Color3.fromRGB(69, 153, 245)}
+									TextColor3={Color3.fromHex("#C1C6CA")}
 									ZIndex={4}
 								/>
 								<imagelabel
@@ -266,14 +257,13 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 									Size={new UDim2(0.312, 0, 1, 0)}
 									ZIndex={4}
 									Image={"rbxassetid://103646554481566"}
-									ImageColor3={Color3.fromRGB(69, 153, 245)}
+									ImageColor3={Color3.fromHex("#C1C6CA")}
 								/>
 							</textbutton>
 							<textbutton
 								Key={"Delete"}
 								AnchorPoint={new Vector2(0.5, 0.5)}
-								BackgroundColor3={Color3.fromRGB(206, 10, 46)}
-								BackgroundTransparency={0.92}
+								BackgroundColor3={Color3.fromHex("#25272C")}
 								LayoutOrder={0}
 								Size={new UDim2(0.277, 0, 0.811, 0)}
 								ZIndex={4}
@@ -289,7 +279,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 									Text={"Delete"}
 									TextScaled={true}
 									TextXAlignment={"Left"}
-									TextColor3={Color3.fromRGB(206, 10, 46)}
+									TextColor3={Color3.fromHex("#C1C6CA")}
 									ZIndex={4}
 								/>
 								<imagelabel
@@ -297,7 +287,7 @@ export function createListPanel(index: number, fileName: string, modifiedDate: s
 									Size={new UDim2(0.361, 0, 1, 0)}
 									ZIndex={4}
 									Image={"rbxassetid://121047363025945"}
-									ImageColor3={Color3.fromRGB(206, 10, 46)}
+									ImageColor3={Color3.fromHex("#C1C6CA")}
 								/>
 							</textbutton>
 						</frame>
