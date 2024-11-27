@@ -27,25 +27,25 @@
 			},
 			"AnimIDs": {
 				"$className": "Folder",
-				"AirDive": { "$className": "IntValue", "$properties": { "Value": 134410938362857 } },
-				"Emote": { "$className": "IntValue", "$properties": { "Value": 100446789645949 } },
-				"Fall": { "$className": "IntValue", "$properties": { "Value": 134410938362857 } },
-				"Idle": { "$className": "IntValue", "$properties": { "Value": 507766666 } },
-				"Jump": { "$className": "IntValue", "$properties": { "Value": 77659192944927 } },
-				"NoWalk": { "$className": "IntValue", "$properties": { "Value": 89111418672430 } },
-				"OldWalk": { "$className": "IntValue", "$properties": { "Value": 99708927544521 } },
-				"Run": { "$className": "IntValue", "$properties": { "Value": 110782376783419 } },
-				"Slide": { "$className": "IntValue", "$properties": { "Value": 129040327001178 } },
-				"Swim": { "$className": "IntValue", "$properties": { "Value": 125215529436985 } },
-				"SwimAngle-45": { "$className": "IntValue", "$properties": { "Value": 72527462965278 } },
-				"SwimAngle-90": { "$className": "IntValue", "$properties": { "Value": 93919356579186 } },
-				"SwimAngle0": { "$className": "IntValue", "$properties": { "Value": 92894054721594 } },
-				"SwimAngle45": { "$className": "IntValue", "$properties": { "Value": 94859899471813 } },
-				"SwimAngle90": { "$className": "IntValue", "$properties": { "Value": 81279249114842 } },
-				"SwimIdle": { "$className": "IntValue", "$properties": { "Value": 140288103791895 } },
-				"Swingy": { "$className": "IntValue", "$properties": { "Value": 110392764621378 } },
-				"Walk": { "$className": "IntValue", "$properties": { "Value": 106670165160150 } },
-				"WallHang": { "$className": "IntValue", "$properties": { "Value": 87556045654848 } }
+				"AirDive": { "$className": "IntValue", "$properties": { "Value": 97989754841920 } },
+				"Emote": { "$className": "IntValue", "$properties": { "Value": 81071220913545 } },
+				"Fall": { "$className": "IntValue", "$properties": { "Value": 97989754841920 } },
+				"Idle": { "$className": "IntValue", "$properties": { "Value": 94991119588538 } },
+				"Jump": { "$className": "IntValue", "$properties": { "Value": 85020062710604 } },
+				"NoWalk": { "$className": "IntValue", "$properties": { "Value": 99063466673516 } },
+				"OldWalk": { "$className": "IntValue", "$properties": { "Value": 135321609183471 } },
+				"Run": { "$className": "IntValue", "$properties": { "Value": 96147798096490 } },
+				"Slide": { "$className": "IntValue", "$properties": { "Value": 130275912270289 } },
+				"Swim": { "$className": "IntValue", "$properties": { "Value": 92889128744985 } },
+				"SwimAngle-45": { "$className": "IntValue", "$properties": { "Value": 135874423855536 } },
+				"SwimAngle-90": { "$className": "IntValue", "$properties": { "Value": 99899830500649 } },
+				"SwimAngle0": { "$className": "IntValue", "$properties": { "Value": 137177994406765 } },
+				"SwimAngle45": { "$className": "IntValue", "$properties": { "Value": 107947302055132 } },
+				"SwimAngle90": { "$className": "IntValue", "$properties": { "Value": 104837354830735 } },
+				"SwimIdle": { "$className": "IntValue", "$properties": { "Value": 98610971037618 } },
+				"Swingy": { "$className": "IntValue", "$properties": { "Value": 128253658564413 } },
+				"Walk": { "$className": "IntValue", "$properties": { "Value": 77214075657307 } },
+				"WallHang": { "$className": "IntValue", "$properties": { "Value": 76851911521693 } }
 			}
 		},
 		"ReplicatedFirst": {
@@ -53,6 +53,9 @@
 		},
 		"StarterPlayer": {
 			"$className": "StarterPlayer",
+			"$properties": {
+				"CharacterWalkSpeed": 20
+			},
 			"StarterPlayerScripts": {
 				"$className": "StarterPlayerScripts",
 				"$path": "out/client/Player",
@@ -66,7 +69,7 @@
 						}
 					}
 				},
-				"SFX_Folder2": {
+				"SFX_Folder": {
 					"$className": "Folder",
 					"!Temp": {"$className": "Folder"}
 				}

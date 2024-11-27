@@ -36,7 +36,7 @@ humRootPart.Touched.Connect(() => {
 			humRootPart.Anchored = true;
 			humRootPart.CFrame = new CFrame(humRootPart.Position, humRootPart.Position.add(normal));
 
-			(sfx_folder.FindFirstChild("Wall_Latch") as Sound).Play();
+			//(sfx_folder.FindFirstChild("Wall_Latch") as Sound).Play();
 			wallAnimation.Play();
 
 			const startWallHangTime = os.clock();
@@ -65,7 +65,7 @@ humRootPart.Touched.Connect(() => {
 
 			if (hasJumped) {
 				humRootPart.Velocity = new Vector3(normal.X * 52, normal.Y * 52 + humanoid.JumpPower, normal.Z * 52);
-				(sfx_folder.FindFirstChild("Wall_Jump") as Sound).Play();
+				//(sfx_folder.FindFirstChild("Wall_Jump") as Sound).Play();
 			} else {
 				humRootPart.Velocity = new Vector3();
 			}
@@ -98,11 +98,6 @@ function TrussJump() {
 humanoid.Jumping.Connect((enteringState) => {
 	if (enteringState && humanoid.GetStateEnabled("Climbing") === true) {
 		TrussJump();
-		humRootPart.Velocity = new Vector3(
-			humRootPart.Velocity.X,
-			math.clamp(humRootPart.Velocity.Y, -100000, humanoid.JumpPower * 1.1),
-			humRootPart.Velocity.Z,
-		);
 	}
 });
 
@@ -110,10 +105,5 @@ humanoid.Jumping.Connect((enteringState) => {
 RunService.PostSimulation.Connect(() => {
 	if (humanoid.GetState() === Enum.HumanoidStateType.Jumping && humanoid.GetStateEnabled("Climbing") === true) {
 		TrussJump();
-		humRootPart.Velocity = new Vector3(
-			humRootPart.Velocity.X,
-			math.clamp(humRootPart.Velocity.Y, -100000, humanoid.JumpPower * 1.1),
-			humRootPart.Velocity.Z,
-		);
 	}
 });

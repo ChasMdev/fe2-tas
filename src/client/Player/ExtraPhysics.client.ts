@@ -84,7 +84,7 @@ function runSlide(actname: any, inputstate: Enum.UserInputState, inputobj: any) 
 						humRootPart.Velocity.Z,
 					);
 					(hum.Parent?.FindFirstChild("Animate")?.WaitForChild("AirDiving") as BindableEvent).Fire(true);
-					(sfx_folder.FindFirstChild("Slide") as Sound).Play();
+					//(sfx_folder.FindFirstChild("Slide") as Sound).Play();
 				}
 				playerVars.isSlidePending = true;
 				while (
@@ -101,7 +101,7 @@ function runSlide(actname: any, inputstate: Enum.UserInputState, inputobj: any) 
 			}
 			const rootPos = humRootPart.Position;
 			if (!playerVars.isSliding) {
-				(sfx_folder.FindFirstChild("Slide") as Sound).Play();
+				//(sfx_folder.FindFirstChild("Slide") as Sound).Play();
 			}
 			humRootPart.Size = new Vector3(2, 1, 0.5);
 			humRootPart.Velocity = new Vector3(humRootPart.Velocity.X, -35, humRootPart.Velocity.Z);
@@ -230,11 +230,11 @@ while (true) {
 
 			if (!playerVars.ziplining && animate) {
 				(animate.WaitForChild("ToggleSwim") as BindableEvent).Fire(playerVars.charState);
-			}
-			if (sfx_folder.FindFirstChild(`Splash_${waterState || "water"}`)) {
-				(sfx_folder.FindFirstChild(`Splash_${waterState || "water"}`) as Sound).Play();
-			} else {
-				(sfx_folder.FindFirstChild("Splash_water") as Sound).Play();
+			//}
+			//if (sfx_folder.FindFirstChild(`Splash_${waterState || "water"}`)) {
+			//	(sfx_folder.FindFirstChild(`Splash_${waterState || "water"}`) as Sound).Play();
+			//} else {
+			//	(sfx_folder.FindFirstChild("Splash_water") as Sound).Play();
 			}
 
 			if (playerVars.charState === 0) {
