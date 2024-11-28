@@ -1,6 +1,7 @@
 import { RunService, UserInputService, Players, Workspace, ReplicatedStorage } from "@rbxts/services";
+import { renderRope } from "shared/SharedModules/GenerateRope";
 
-const tru = true;
+const tru = true; // lmfao
 
 const player = Players.LocalPlayer;
 const char = player.Character;
@@ -107,3 +108,10 @@ RunService.PostSimulation.Connect(() => {
 		TrussJump();
 	}
 });
+
+// create ziplines. not sure if it should be done serverside instead
+for (const [i, v] of pairs(game.Workspace.GetDescendants())) {
+	if (string.find(v.Name, "_Rope")[0] && (v.IsA("Model"))) {
+		renderRope(v);
+	}
+}
