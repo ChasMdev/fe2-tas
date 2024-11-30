@@ -3,4 +3,6 @@
 /include
 *.tsbuildinfo
 /Resources
-test2.rbxl
+*.rbxl*
+/package-lock.json
+/aftman.toml

@@ -346,44 +346,33 @@ end
 local sliding = false
 local swinging = false
 function playAnimation(animName, transitionTime, humanoid)
-    local play = false
-    if sliding then
-        if animName == "slide" then
-            play = true
-        end
-    elseif swinging then
-        if animName == "swing" then
-            play = true
-        end
-    else
-        play = true
+    if (sliding and animName ~= "slide") or (swinging and animName ~= "swing") then
+        return
     end
-    
-    if play then
-        local roll = math.random(1, animTable[animName].totalWeight)
-        local origRoll = roll
-        local idx = 1
-        while roll > animTable[animName][idx].weight do
-            roll = roll - animTable[animName][idx].weight
-            idx = idx + 1
+
+    local roll = math.random(1, animTable[animName].totalWeight)
+    local origRoll = roll
+    local idx = 1
+    while roll > animTable[animName][idx].weight do
+        roll = roll - animTable[animName][idx].weight
+        idx = idx + 1
+    end
+    local anim = animTable[animName][idx].anim
+    if anim ~= currentAnimInstance then
+        if currentAnimTrack ~= nil then
+            currentAnimTrack:Stop(transitionTime)
+            currentAnimTrack:Destroy()
         end
-        local anim = animTable[animName][idx].anim
-        if anim ~= currentAnimInstance then
-            if currentAnimTrack ~= nil then
-                currentAnimTrack:Stop(transitionTime)
-                currentAnimTrack:Destroy()
-            end
-            currentAnimSpeed = 1
-            currentAnimTrack = humanoid:LoadAnimation(anim)
-            currentAnimTrack:Play(transitionTime)
-            currentAnim = animName
-            currentAnimInstance = anim
-            script.ChangedAnim:Fire(anim)
-            if currentAnimKeyframeHandler ~= nil then
-                currentAnimKeyframeHandler:disconnect()
-            end
-            currentAnimKeyframeHandler = currentAnimTrack.KeyframeReached:connect(keyFrameReachedFunc)
+        currentAnimSpeed = 1
+        currentAnimTrack = humanoid:LoadAnimation(anim)
+        currentAnimTrack:Play(transitionTime)
+        currentAnim = animName
+        currentAnimInstance = anim
+        script.ChangedAnim:Fire(anim)
+        if currentAnimKeyframeHandler ~= nil then
+            currentAnimKeyframeHandler:disconnect()
         end
+        currentAnimKeyframeHandler = currentAnimTrack.KeyframeReached:connect(keyFrameReachedFunc)
     end
 end
 local toolAnimName = ""
@@ -748,6 +737,7 @@ end)
 script:WaitForChild("Swinging").Event:Connect(function(play)
     swinging = play
     if play == true then
+        Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false) -- stop ragdoll after zipline
         --game.Players.LocalPlayer.PlayerScripts.CL_MAIN_GameScript.SFX.GrabZipline:Play()
         --game.Players.LocalPlayer.PlayerScripts.CL_MAIN_GameScript.SFX.Zipline:Play()
         playAnimation("swing", 0.1, Humanoid)
@@ -760,6 +750,8 @@ script:WaitForChild("Swinging").Event:Connect(function(play)
     if currentAnim == "swing" then
         playAnimation("idle", 0.1, Humanoid)
     end
+    task.wait(0.2)
+    Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, true) -- reenable ragdoll
 end)
 local runService = game:service("RunService")
 playAnimation("idle", 0.1, Humanoid)

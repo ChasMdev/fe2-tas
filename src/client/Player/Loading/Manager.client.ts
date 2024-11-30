@@ -5,7 +5,7 @@ import { createListPanel } from "GUI/Lobby/Recent/CreateListPanel";
 import { recentTabGui } from "GUI/Lobby/HomeView";
 import { GroupMotor, Spring } from "@rbxts/flipper";
 
-Roact.mount(recentTabGui, Players.LocalPlayer.WaitForChild("PlayerGui"));
+//Roact.mount(recentTabGui, Players.LocalPlayer.WaitForChild("PlayerGui"));
 
 function manipulateFrame(ref: Roact.Ref<Frame>, args: { size: UDim2; pos: UDim2 }) {
 	const frame = ref.getValue();
